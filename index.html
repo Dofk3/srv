@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serverio Puslapis</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            width: 811px;
+            margin: 0 auto;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .menu {
+            margin-left: auto;
+            width: 250px;
+            font-size: 1.2em;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .menu li {
+            margin: 15px 0;
+        }
+        .main {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f1f1f1;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Vilhelmas Storosta (Vydūnas)</h1>
+</header>
+
+<div class="container">
+    <div class="main">
+        <iframe src="biografija.html" id="content-frame"></iframe>
+    </div>
+    <div class="menu">
+        <h3>Meniu</h3>
+        <ul>
+            <li><a href="#" onclick="loadPage('biografija.html')">Biografija</a></li>
+            <li><a href="#" onclick="loadPage('kuriniai.html')">Kūrinių sąrašas</a></li>
+            <li><a href="#" onclick="loadPage('foto.html')">Fotografijos</a></li>
+            <li><a href="#" onclick="loadPage('vietos.html')">Įamžinimas</a></li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <p id="date"></p>
+</footer>
+
+<script>
+    // Function to dynamically change the iframe source
+    function loadPage(page) {
+        document.getElementById('content-frame').src = page;
+        return false; // Prevent the default action (which would open a new tab)
+    }
+
+    // Display the current date in the footer
+    const dateElement = document.getElementById('date');
+    const today = new Date();
+    dateElement.textContent = today.toLocaleDateString();
+</script>
+
+</body>
+</html>
